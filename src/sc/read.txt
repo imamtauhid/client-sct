@@ -1,0 +1,9 @@
+namespace TODLibrary
+class SmartCard
+
+GetStatusSCR   (int)input.port
+		-string ErrorDesc;
+        	-bool Flag;
+GetSN
+	-string ErrorDesc;
+	-public string SerialNumber;

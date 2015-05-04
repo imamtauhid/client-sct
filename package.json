@@ -1,0 +1,15 @@
+{
+  "name": "sct",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/sct.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "edge": "^0.10.1",
+    "socket.io-client": "^1.3.5"
+  }
+}
