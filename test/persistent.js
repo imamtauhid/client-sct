@@ -1,4 +1,5 @@
 var io = require('socket.io-client')
+var edge = require('edge')
 
 console.log("sct.js :: required")
 
@@ -9,12 +10,30 @@ var config = {
     namespace: '',
     query: {
 
-        query: 'room=sct&name=sct1',
+        query: 'room=sct&name=sct3',
         forceNew: true
 
     }
 
 }
+
+var test = edge.func({
+
+    assemblyFile: 'TODLibrary.dll',
+    typeName: 'TODLibrary.SmartCard',
+    references: ["ACR120.dll"],
+    methodName: 'GetStatusSCR' // This must be Func<object,Task<object>>
+
+})
+
+var getSn = edge.func({
+
+    assemblyFile: 'TODLibrary.dll',
+    typeName: 'TODLibrary.SmartCard',
+    references: ["ACR120.dll"],
+    methodName: 'GetSN' // This must be Func<object,Task<object>>
+
+})
 
 function Persistent (config) {
 
@@ -195,35 +214,37 @@ Sct.start(function(socket){
 
         var select = data.select
 
+        var data = test({
+
+            port: 2
+
+        }, {
+
+            ErrorDesc: '',
+            Flag: false
+
+        }, true)
+
+        var data1 = getSn({
+
+            ErrorDesc: '',
+            SerialNumber: ''
+
+        }, true)
+
         socket.emit('sct@returnStatusScr', {
 
             select: select,
             err: null,
-            data: false
+            data: {
+
+                statusScr: data,
+                dataCard: data1
+
+            }
 
         })
 
     })
 
 })
-
-// var test = edge.func({
-
-//     assemblyFile: 'ACR120.dll',
-//     typeName: 'TODLibrary.SmartCard',
-//     methodName: 'GetStatusSCR' // This must be Func<object,Task<object>>
-
-// })
-
-// console.log("sct.js :: test", test)
-
-// var data = test({
-
-//     port: 1
-
-// }, {
-
-//     ErrorDesc: '',
-//     Flag: false
-
-// }, true)
