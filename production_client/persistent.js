@@ -10,6 +10,7 @@ define([], function(){
 
         var _this = this,
             _config = {},
+            _startup = '',
             _socket = {};
 
         var __constructor = function(config){
@@ -163,7 +164,7 @@ define([], function(){
 
         }
 
-        _this.connect = function(callback){
+        _this.connect = function(){
 
             console.log("persistent.js :: connect");
 
@@ -171,7 +172,23 @@ define([], function(){
 
             _socket = io(uri, _config.query)
 
-            _this.acceptHandler(callback)
+            _this.acceptHandler(_this.startup)
+
+        }
+
+        _this.disconnect = function () {
+
+            console.log("persistent.js :: disconnect")
+
+            _socket.disconnect()
+
+        }
+
+        _this.setStartup = function (callback) {
+
+            console.log("persistent.js :: setStartup")
+
+            _this.startup = callback
 
         }
 
@@ -179,7 +196,9 @@ define([], function(){
 
             console.log("persistent.js :: start");
 
-            _this.connect(callback)
+            if(typeof callback == 'function') _this.setStartup(callback)
+
+            _this.connect()
 
         }
 
@@ -190,6 +209,7 @@ define([], function(){
     return Persistent
 
 })
+
 
 
 

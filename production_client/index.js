@@ -14,29 +14,40 @@
         paths: {
 
             _persistent: '/admin/library/client_sct/production_client/persistent',
-            _config: '/admin/library/client_sct/config/server'
+            _config: '/admin/library/client_sct/config/server',
+            _jquery: '/admin/vendor/bower_components/jquery/dist/jquery'
 
         }
 
     })
 
-    require(['_persistent', '_config'], function (Persistent, config) {
+    require(['_persistent', '_config', '_jquery'], function (Persistent, config) {
 
-        console.log('Persistent')
-        console.log(Persistent)
         console.log(config)
+
+        if(!global.persistent) global.persistent = {}
 
         var selecter = new Persistent(config)
 
-        window.selecter = selecter
+        global.persistent._selecter = selecter
 
         selecter.addQuery('name', 'selecter' + uuid.v4())
 
-        selecter.start(function(socket){
+        selecter.setStartup(function(socket){
+
+            socket.on('_online', function (data) {
+
+                console.log("index.js :: _online :: data ", data)
+
+                if(typeof global.persistent['_online'] == 'function') global.persistent['_online'](null, data)
+
+            })
 
             socket.on('returnStatusScr', function(data){
 
                 console.log("index.js :: returnStatusScr :: data ", data)
+
+                if(typeof global.persistent['returnStatusScr'] == 'function') global.persistent['returnStatusScr'](null, data)
 
             })
 
