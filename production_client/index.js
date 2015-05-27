@@ -60,23 +60,3 @@
     });
 
 }(window, require, uuid, io))
-
-// Persistent = require(__dirname + '/persistent.js')
-// config = require(__dirname + '/../config/server.json')
-
-// var scr = new SCR(configScr)
-// var so = new Persistent(config)
-
-// so.addQuery('name', configScr.name)
-
-// so.start(function(socket){
-
-//     socket.on('returnStatusScr', function(data){
-
-//         console.log("index.js :: returnStatusScr :: data ", data)
-
-//         console.log(data)
-
-//     })
-
-// })
