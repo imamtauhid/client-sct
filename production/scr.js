@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 function SCR(config) {
 
   var _edge = require('edge')
@@ -61,12 +61,11 @@ function SCR(config) {
 
     }
 
-    if(!config)(
-
+    if(!config){
       callback(new Error('>> config not included '))
       return
 
-    )
+    }
 
     try {
 
