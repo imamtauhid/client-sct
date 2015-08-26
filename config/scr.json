@@ -1,0 +1,20 @@
+{
+
+    "name": "scr1",
+    "port": 1,
+    "library": {
+
+        "assemblyFile": "TODLibrary.dll",
+        "typeName": "TODLibrary.SmartCard",
+        "references": ["ACR120.dll"],
+        "mapMethods": {
+
+            "getStatus": "GetStatusSCR",
+            "getSn": "GetSN",
+            "normalisasiKtm": "NormalisasiKtm"
+
+        }
+
+    }
+
+}

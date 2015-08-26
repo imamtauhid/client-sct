@@ -1,0 +1,17 @@
+{
+  "name": "sct",
+  "version": "1.0.0",
+  "description": "integration socket with smartcard reader using edge",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/persistent.js",
+    "start": "node production/index.js"
+  },
+  "author": "imam tauhid",
+  "license": "ISC",
+  "dependencies": {
+    "edge": "^0.10.1",
+    "lodash": "^3.8.0",
+    "socket.io-client": "^1.3.5"
+  }
+}
