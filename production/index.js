@@ -27,7 +27,7 @@ so.start(function(socket) {
 
     var scrStatus = scr.getStatus()
     var cardSn = scr.getSn()
-    var normalisasiKtm = scr.normalisasiKtm()
+    var normalisasiKtm = scr.normalisasiKtm(data)
 
     socket.emit('sct@returnStatusScr', {
 

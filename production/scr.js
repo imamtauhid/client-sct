@@ -41,13 +41,13 @@ function SCR(config) {
       config.library[k].references = __config.library.references
       config.library[k].methodName = v
 
-    })
+    })  
 
     return config
 
   }
 
-  _this.normalisasiKtm = function(data, callback) {
+  _this.normalisasiKtm = function(data) {
 
     console.log("scr.js : normalisasiKtm")
 
@@ -56,13 +56,13 @@ function SCR(config) {
 
     if (!data) {
 
-      callback(new Error('>> data not passing'))
+      console.log(new Error('>> data not passing'))
       return
 
     }
 
     if(!config){
-      callback(new Error('>> config not included '))
+      console.log(new Error('>> config not included '))
       return
 
     }
