@@ -10,11 +10,14 @@
         "mapMethods": {
 
             "getStatus": "GetStatusSCR",
+
             "getSn": "GetSN",
             "normalisasiKtm": "NormalisasiKtm"
+
 
         }
 
     }
+
 
 }

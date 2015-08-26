@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function SCR(config) {
 
   var _edge = require('edge')

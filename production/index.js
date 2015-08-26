@@ -1,9 +1,11 @@
 console.log("index.js :: require")
 
 var config,
-  Persistent,
-  SCR,
-  configScr
+
+    Persistent,
+    SCR,
+    configScr
+
 
 config = {}
 
@@ -43,6 +45,7 @@ so.start(function(socket) {
 
   })
 
+
 })
 
 return false
@@ -56,6 +59,7 @@ return false
 //         var select = data.select
 //         var scrStatus = scr.getStatusScr()
 //         var cardSn = scr.getSn()
+
 
 // var data = test({
 
@@ -75,6 +79,7 @@ return false
 
 // }, true)
 
+
 //         socket.emit('sct@returnStatusScr', {
 
 //             select: select,
@@ -91,3 +96,4 @@ return false
 //     })
 
 // })
+
