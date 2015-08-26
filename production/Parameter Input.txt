@@ -2,11 +2,22 @@ GetStatusSCR((int)input.port);
 
 GetSN();
 
+
+
+
+
 NormalisasiKTM(
-(int)input.iPort, /integer
-(int)input.iNDKPultol, /ndk
-(int)input.iNDKpengawas, /ndk
-(int)input.iGerbang, /integer
-(int)input.iGardu, /integer
-(int)input.iShift, /integer
-(int)input.iGolongan); /integer
+int iPort, 
+int iNDKPultol, 
+int iNDKPengawas, 
+int iGerbang, 
+int iGardu, 
+int iShift, 
+int iGolongan)
+
+
+result:
+
+string ErrorDesc;
+string SNCard;
+        
