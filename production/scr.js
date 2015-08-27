@@ -41,13 +41,13 @@ function SCR(config) {
       config.library[k].references = __config.library.references
       config.library[k].methodName = v
 
-    })  
+    })
 
     return config
 
   }
 
-  _this.normalisasiKtm = function(data) {
+  _this.normalisasiKtm = function(data, callback) {
 
     console.log("scr.js : normalisasiKtm")
 
@@ -56,16 +56,17 @@ function SCR(config) {
 
     if (!data) {
 
-      console.log(new Error('>> data not passing'))
+      callback(new Error('>> data not passing'))
       return
 
     }
 
-    if(!config){
-      console.log(new Error('>> config not included '))
+    if(!config)(
+
+      callback(new Error('>> config not included '))
       return
 
-    }
+    )
 
     try {
 
@@ -74,12 +75,12 @@ function SCR(config) {
       return action({
 
         iPort: _config.port,
-        iNDKPultol: (data.pultol) ? data.pultol : null,
-        iNDKPengawas: (data.pengawas) ? data.pengawas : null,
-        iGerbang: (data.gerbang) ? data.gerbang : null,
-        iGardu: (data.gardu) ? data.gardu : null,
-        iShift: (data.shift) ? data.shift : null,
-        iGolongan: (data.golongan) ? data.golongan : null
+        iNDKPultol: (data.data && data.data.pultol) ? data.data.pultol : 0,
+        iNDKPengawas: (data.data && data.data.pengawas) ? data.data.pengawas : 0,
+        iGerbang: (data.data && data.data.gerbang) ? data.data.gerbang : 0,
+        iGardu: (data.data && data.data.gardu) ? data.data.gardu : 0,
+        iShift: (data.data && data.data.shift) ? data.data.shift : 0,
+        iGolongan: (data.data && data.data.golongan) ? data.data.golongan : 0
 
       }, {
 
