@@ -1,11 +1,11 @@
 
 function SCR(config) {
 
-  var _edge = require('edge')
-  var __ = require('lodash')
+  var _edge = require('edge');
+  var __ = require('lodash');
 
   var _this = this,
-    _config = {}
+    _config = {};
 
   var __constructor = function(config) {
 
@@ -61,12 +61,11 @@ function SCR(config) {
 
     }
 
-    if(!config)(
+    if(!config){
 
-      callback(new Error('>> config not included '))
-      return
+      return callback(new Error('>> config not included '))
 
-    )
+    }
 
     try {
 
